@@ -1,0 +1,7 @@
+https://tweakcn.com/ => Customize Shadcn ui
+https://tiptap.dev/product/editor => Rich Editor Text
+https://react-dropzone.js.org/ => Drag'n'drop zone
+https://www.npmjs.com/package/slugify => lib for create slug
+https://resend.com/ => email for developers
+https://arcjet.com/ => security for developers
+https://coss.com/ui/docs => Components ui
