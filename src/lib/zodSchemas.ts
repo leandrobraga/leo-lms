@@ -1,7 +1,7 @@
 import z from "zod";
 
-export const courseLevels = ["Beginner", "Intermediate", "Advanced"];
-export const courseStatus = ["Draft", "Published", "Archived"];
+export const courseLevels = ["Begginer", "Intermediate", "Advanced"] as const;
+export const courseStatus = ["Draft", "Published", "Archived"] as const;
 
 export const courseCategories = [
   "Development",
@@ -20,7 +20,7 @@ export const courseCategories = [
 export const courseSchema = z.object({
   title: z
     .string()
-    .min(3, { message: "File key must be at least 3 characteres long" })
+    .min(3, { message: "Title must be at least 3 characteres long" })
     .max(100, { message: "Title must be at most 100 characters long" }),
   description: z
     .string()

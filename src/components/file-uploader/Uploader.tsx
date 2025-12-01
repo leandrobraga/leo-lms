@@ -25,7 +25,12 @@ interface UploadState {
   fileType: "image" | "video";
 }
 
-export default function Uploader() {
+interface iAppProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+export default function Uploader({ value, onChange }: iAppProps) {
   const [fileState, setFileState] = useState<UploadState>({
     error: false,
     file: null,
@@ -34,6 +39,7 @@ export default function Uploader() {
     isDeleting: false,
     progress: 0,
     uploading: false,
+    key: value,
   });
 
   async function uploadFile(file: File) {
@@ -85,6 +91,8 @@ export default function Uploader() {
               uploading: false,
               key: key,
             }));
+
+            onChange?.(key);
             toast.success("File uploaded succesfully");
             resolve();
           } else {
@@ -168,6 +176,7 @@ export default function Uploader() {
       if (fileState.objectUrl && !fileState.objectUrl.startsWith("http")) {
         URL.revokeObjectURL(fileState.objectUrl);
       }
+      onChange?.("");
       setFileState(() => ({
         file: null,
         uploading: false,
